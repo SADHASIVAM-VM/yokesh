@@ -1,0 +1,6 @@
+.gitLink{
+  display: none;
+}
+.imgs:hover .gitLink{
+display: block;
+}

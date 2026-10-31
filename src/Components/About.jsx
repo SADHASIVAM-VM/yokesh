@@ -1,11 +1,20 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { portfolioData } from '../data/portfolio';
-import { CheckCircle2, ArrowRight, FileText, MapPin, Building, GraduationCap, Sparkles } from 'lucide-react';
+import { 
+  AcademicCapIcon, 
+  BriefcaseIcon, 
+  BuildingOffice2Icon, 
+  CheckCircleIcon, 
+  DocumentArrowDownIcon, 
+  MapPinIcon, 
+  SparklesIcon, 
+  ArrowRightIcon 
+} from '@heroicons/react/24/outline';
 import { LinkedInIcon } from './Icons';
+import { portfolioData } from '../data/portfolio';
 import profileImg from '../assets/images/profile.jpeg';
 
-// Animated Counter Component for Stats
+// Apple Animated Number Component
 const AnimatedCounter = ({ target, suffix = '', inView }) => {
   const [count, setCount] = useState(0);
 
@@ -14,7 +23,7 @@ const AnimatedCounter = ({ target, suffix = '', inView }) => {
     let start = 0;
     const numericTarget = parseInt(target, 10);
     const duration = 1400;
-    const stepTime = 35;
+    const stepTime = 30;
     const steps = duration / stepTime;
     const increment = numericTarget / steps;
 
@@ -47,19 +56,22 @@ const About = () => {
   const stats = [
     { target: 2, suffix: '+', label: 'Years of Studies', sub: 'Commerce & Finance' },
     { target: 2, suffix: '', label: 'Internship Roles', sub: 'Finance & Operations' },
-    { target: 3, suffix: '+', label: 'Enterprise Tools', sub: 'SAP FICO, Tally, Excel' },
+    { target: 3, suffix: '+', label: 'Enterprise Systems', sub: 'SAP FICO, Tally, Excel' },
   ];
 
   const scrollToExperience = () => {
     const el = document.getElementById('experience');
-    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset - 72, behavior: 'smooth' });
+    if (el) {
+      const topOffset = el.getBoundingClientRect().top + window.pageYOffset - 80;
+      window.scrollTo({ top: topOffset, behavior: 'smooth' });
+    }
   };
 
   return (
-    <section id="about" className="relative py-24 md:py-32">
+    <section id="about" className="relative bg-[#000000] py-28 md:py-36 hairline-t">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
 
-        {/* Section Label */}
+        {/* Apple Eyebrow Pill */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -67,176 +79,173 @@ const About = () => {
           transition={{ duration: 0.5 }}
           className="flex items-center gap-3 mb-4"
         >
-          <span className="section-label">{about.label}</span>
+          <span className="apple-pill">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#A8FF3E] animate-pulse" />
+            {about.label}
+          </span>
         </motion.div>
 
-        {/* Section Heading with Lime Accent */}
+        {/* Section Heading */}
         <motion.h2
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-3xl sm:text-4xl md:text-[46px] font-bold text-white leading-tight tracking-tight max-w-3xl mb-14"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tightest leading-tight max-w-3xl mb-14"
         >
           Beyond numbers.<br />
-          <span className="text-[#A8FF3E]">Understanding how businesses create value.</span>
+          <span className="text-zinc-400">Understanding how businesses create sustainable value.</span>
         </motion.h2>
 
-        {/* BENTO PROFILE ARCHITECTURE */}
+        {/* ========================================================
+            APPLE BENTO ARCHITECTURE (Executive Matrix)
+           ======================================================== */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 mb-14 items-stretch">
 
-          {/* Module 1: Executive Portrait & Identity Card (Full Image Fit) */}
+          {/* Module 1: Executive Portrait Glass Card (5 cols) */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            whileHover={{ y: -4, borderColor: 'rgba(168,255,62,0.35)' }}
-            className="lg:col-span-5 card p-6 sm:p-8 flex flex-col justify-between items-center text-center relative overflow-hidden transition-all duration-300"
-            style={{ background: 'linear-gradient(160deg, #131313 0%, #0D0D0D 100%)' }}
+            className="lg:col-span-5 apple-card p-6 sm:p-8 flex flex-col justify-between items-center text-center relative overflow-hidden"
           >
             {/* Top Status & Location Strip */}
             <div className="w-full flex items-center justify-between mb-4 z-10">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#A8FF3E]/10 border border-[#A8FF3E]/30 text-[10px] font-semibold text-[#A8FF3E] uppercase tracking-wider font-mono">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#A8FF3E]/10 border border-[#A8FF3E]/20 text-[10px] font-semibold text-[#A8FF3E] uppercase tracking-wider">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#A8FF3E] animate-pulse" />
                 Available
               </span>
-              <span className="text-[11px] font-mono text-[#777777] flex items-center gap-1">
-                <MapPin className="w-3 h-3 text-[#A8FF3E]" />
-                Chennai, IN
+              <span className="text-[11px] font-medium text-zinc-400 flex items-center gap-1">
+                <MapPinIcon className="w-3.5 h-3.5 text-[#A8FF3E]" />
+                Chennai, India
               </span>
             </div>
 
-            {/* FULL IMAGE CONTAINER (100% Uncropped Portrait) */}
-            <div className="w-full max-w-[280px] sm:max-w-[320px] mx-auto rounded-2xl overflow-hidden border border-white/10 bg-[#161616] shadow-2xl relative group my-2">
+            {/* FULL PORTRAIT CONTAINER (Apple VisionOS Specular Frame) */}
+            <div className="w-full max-w-[280px] sm:max-w-[320px] mx-auto rounded-2xl overflow-hidden border border-white/10 bg-[#0C0D12] shadow-2xl relative group my-2">
               <img
                 src={profileImg}
                 alt="Yokesh D - Finance & Operations Professional"
                 className="w-full h-auto object-contain block mx-auto filter brightness-[0.98] contrast-[1.03] group-hover:scale-[1.02] transition-transform duration-500"
               />
 
-              {/* Specialization Badge on Image */}
-              <div className="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-full bg-[#121212]/90 backdrop-blur-md border border-[#A8FF3E]/30 text-[10px] font-mono text-[#A8FF3E] flex items-center gap-1 shadow-lg">
-                <Sparkles className="w-3 h-3 text-[#A8FF3E]" />
+              {/* Specialization Glass Pill */}
+              <div className="absolute bottom-2.5 right-2.5 px-3 py-1 rounded-full apple-glass border border-white/15 text-[10px] font-semibold text-white flex items-center gap-1 shadow-lg">
+                <SparklesIcon className="w-3.5 h-3.5 text-[#A8FF3E]" />
                 <span>SAP · Tally</span>
               </div>
             </div>
 
-            {/* Identity & Degree */}
+            {/* Candidate Identity Details */}
             <div className="mt-4 mb-5 z-10">
               <h3 className="text-white font-bold text-2xl tracking-tight mb-1">
                 {personal.name}
               </h3>
-              <p className="text-[#A8FF3E] text-xs font-semibold tracking-wider uppercase mb-1 font-mono">
-                MBA CANDIDATE · FINANCE &amp; OPERATIONS
+              <p className="text-[#A8FF3E] text-xs font-semibold tracking-wide uppercase mb-1">
+                MBA Candidate · Finance &amp; Operations
               </p>
-              <p className="text-[#8A8A8A] text-xs font-light">
+              <p className="text-zinc-400 text-xs font-normal">
                 S.A Engineering College (2025–2026)
               </p>
             </div>
 
             {/* Action Buttons */}
-            <div className="w-full pt-4 border-t border-white/[0.07] flex items-center gap-3 z-10">
+            <div className="w-full pt-4 border-t border-white/[0.08] flex items-center gap-3 z-10">
               <motion.a
-                whileHover={{ scale: 1.03, y: -2 }}
-                whileTap={{ scale: 0.97 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 href="/resume.pdf"
                 download="Yokesh_D_Resume.pdf"
-                className="flex-1 inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-white text-black font-semibold text-xs hover:bg-neutral-200 transition-colors cursor-pointer shadow-md"
+                className="flex-1 inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-white text-black font-semibold text-xs hover:bg-zinc-200 transition-all cursor-pointer shadow-md"
               >
-                <FileText className="w-4 h-4 text-black" />
-                <span>Resume PDF</span>
+                <DocumentArrowDownIcon className="w-4 h-4 text-black" />
+                <span>Download CV</span>
               </motion.a>
 
               <motion.a
-                whileHover={{ scale: 1.08, borderColor: 'rgba(168,255,62,0.4)', color: '#A8FF3E' }}
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 href={personal.linkedIn}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn Profile"
-                className="p-3 rounded-xl border border-white/10 bg-[#171717] text-[#8A8A8A] hover:text-white transition-colors"
+                className="p-3 rounded-xl apple-glass text-zinc-400 hover:text-white transition-colors"
               >
                 <LinkedInIcon className="w-4 h-4" />
               </motion.a>
             </div>
           </motion.div>
 
-          {/* Module 2: Editorial Thesis & Narrative Card */}
+          {/* Module 2: Strategic Narrative & Credentials (7 cols) */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            whileHover={{ y: -4, borderColor: 'rgba(168,255,62,0.35)' }}
-            className="lg:col-span-7 card p-8 sm:p-10 flex flex-col justify-between relative overflow-hidden transition-all duration-300"
-            style={{ background: 'linear-gradient(160deg, #131313 0%, #0D0D0D 100%)' }}
+            className="lg:col-span-7 apple-card p-8 sm:p-10 flex flex-col justify-between relative overflow-hidden"
           >
-            {/* Top decorative line in Lime */}
-            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#A8FF3E]/60 to-transparent" />
-
             <div>
-              {/* Header pill */}
+              {/* Header Tag */}
               <div className="inline-flex items-center gap-2 mb-6">
-                <span className="pill text-[10px]">
-                  <span className="dot-lime animate-pulse" />
-                  Candidate Spotlight
+                <span className="apple-pill">
+                  Executive Profile
                 </span>
               </div>
 
-              {/* Bold Thesis Quote */}
+              {/* Apple Pull Quote */}
               <blockquote className="text-xl sm:text-2xl lg:text-[26px] text-white font-medium leading-snug tracking-tight mb-6">
                 "{about.leadQuote}"
               </blockquote>
 
-              {/* Clean Structured Copy */}
-              <div className="space-y-4 text-sm sm:text-[15px] text-[#9A9A9A] leading-relaxed font-light mb-8">
+              {/* Narrative Statements */}
+              <div className="space-y-4 text-sm sm:text-base text-zinc-300 leading-relaxed font-light mb-8">
                 <p>
-                  I am a Bachelor of Commerce graduate currently pursuing an MBA with a specialization in Finance and Operations. With foundational knowledge of accounting, financial reporting, and business operations, I have developed practical exposure through internships and corporate industry visits.
+                  Bachelor of Commerce graduate currently pursuing an MBA with specialization in Finance and Operations. Built on rigorous foundational knowledge of accounting, financial reporting, and operational efficiency through hands-on corporate internships.
                 </p>
                 <p>
-                  I have hands-on experience working with <span className="text-white font-medium">Tally Prime</span>, <span className="text-white font-medium">SAP FICO</span>, and <span className="text-white font-medium">Microsoft Excel</span>, supporting day-to-day financial transactions, invoice verification, accounts payable, and operational reporting.
+                  Practical exposure with <span className="text-white font-medium">SAP FICO</span>, <span className="text-white font-medium">Tally Prime</span>, and <span className="text-white font-medium">Microsoft Excel</span>, executing accounts payable workflows, invoice reconciliation, and management reporting with accuracy.
                 </p>
               </div>
 
-              {/* 4 Interactive Credential Badges */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-6 border-t border-white/[0.07] mb-8 text-xs">
-                <div className="flex items-center gap-2.5 text-[#9A9A9A]">
-                  <GraduationCap className="w-4 h-4 text-[#A8FF3E] shrink-0" />
-                  <span>MBA Candidate (Finance &amp; Operations)</span>
+              {/* 4 Apple VisionOS Specification Badges */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-6 border-t border-white/[0.08] mb-8 text-xs">
+                <div className="flex items-center gap-2.5 text-zinc-300">
+                  <AcademicCapIcon className="w-4 h-4 text-[#A8FF3E] shrink-0" />
+                  <span>MBA Candidate (Finance &amp; Ops)</span>
                 </div>
-                <div className="flex items-center gap-2.5 text-[#9A9A9A]">
-                  <Building className="w-4 h-4 text-[#A8FF3E] shrink-0" />
+                <div className="flex items-center gap-2.5 text-zinc-300">
+                  <BriefcaseIcon className="w-4 h-4 text-[#A8FF3E] shrink-0" />
                   <span>Visomax (Finance Intern)</span>
                 </div>
-                <div className="flex items-center gap-2.5 text-[#9A9A9A]">
-                  <Sparkles className="w-4 h-4 text-[#A8FF3E] shrink-0" />
-                  <span>SAP FICO · Tally Prime · MS Excel</span>
+                <div className="flex items-center gap-2.5 text-zinc-300">
+                  <SparklesIcon className="w-4 h-4 text-[#A8FF3E] shrink-0" />
+                  <span>SAP FICO · Tally Prime · Excel</span>
                 </div>
-                <div className="flex items-center gap-2.5 text-[#9A9A9A]">
-                  <GraduationCap className="w-4 h-4 text-[#A8FF3E] shrink-0" />
-                  <span>B.Com Commerce Graduate</span>
+                <div className="flex items-center gap-2.5 text-zinc-300">
+                  <BuildingOffice2Icon className="w-4 h-4 text-[#A8FF3E] shrink-0" />
+                  <span>Universal Eng (Operations Intern)</span>
                 </div>
               </div>
             </div>
 
-            {/* Bottom CTA in Lime */}
+            {/* Bottom CTA Button */}
             <div className="pt-2">
               <motion.button
-                whileHover={{ scale: 1.03, x: 2 }}
+                whileHover={{ scale: 1.02, x: 2 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={scrollToExperience}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#A8FF3E] text-[#0A0A0A] font-bold text-xs hover:bg-[#BEF566] transition-all cursor-pointer shadow-lg shadow-[#A8FF3E]/15"
+                className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-white text-black font-semibold text-xs hover:bg-zinc-200 transition-all cursor-pointer shadow-md"
               >
-                <span>Explore Professional Experience</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                <span>View Full Career Experience</span>
+                <ArrowRightIcon className="w-3.5 h-3.5" />
               </motion.button>
             </div>
           </motion.div>
 
         </div>
 
-        {/* 3 Pillars Grid */}
+        {/* 3 Pillars Bento Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-14">
           {about.pillars.map((pillar, idx) => (
             <motion.div
@@ -245,44 +254,46 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.12 }}
-              whileHover={{
-                y: -6,
-                borderColor: 'rgba(168,255,62,0.35)',
-                boxShadow: '0 12px 30px -10px rgba(168,255,62,0.12)',
-              }}
-              className="card p-6 flex flex-col justify-between transition-all duration-300"
+              className="apple-card p-6 flex flex-col justify-between"
             >
               <div>
-                <motion.div
-                  whileHover={{ rotate: 10, scale: 1.1 }}
-                  className="w-10 h-10 rounded-xl bg-[#A8FF3E]/10 border border-[#A8FF3E]/20 flex items-center justify-center mb-4 transition-transform"
-                >
-                  <CheckCircle2 className="w-4 h-4 text-[#A8FF3E]" />
-                </motion.div>
-                <h4 className="text-white text-base font-semibold mb-2">{pillar.title}</h4>
-                <p className="text-[#8A8A8A] text-xs leading-relaxed font-light">{pillar.description}</p>
+                <div className="w-10 h-10 rounded-xl apple-glass flex items-center justify-center mb-4 text-[#A8FF3E]">
+                  <CheckCircleIcon className="w-5 h-5" />
+                </div>
+                <h4 className="text-white text-base font-semibold tracking-tight mb-2">
+                  {pillar.title}
+                </h4>
+                <p className="text-zinc-400 text-xs leading-relaxed font-light">
+                  {pillar.description}
+                </p>
               </div>
-              <span className="text-[10px] font-mono text-[#555555] uppercase mt-5 block">Pillar 0{idx + 1}</span>
+              <span className="text-[10px] font-mono text-zinc-600 uppercase mt-5 block tracking-wider">
+                Module 0{idx + 1}
+              </span>
             </motion.div>
           ))}
         </div>
 
-        {/* Stats Row with Animated Numbers in Pure Signature LIME Color */}
+        {/* Apple Metrics Horizon (Animated Numbers in Frosted Glass) */}
         <motion.div
           ref={statsRef}
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="grid grid-cols-3 gap-px bg-white/[0.07] rounded-2xl overflow-hidden border border-white/[0.07]"
+          className="grid grid-cols-3 gap-px bg-white/[0.08] rounded-3xl overflow-hidden border border-white/[0.08] apple-glass"
         >
           {stats.map((s, i) => (
-            <div key={i} className="bg-[#0A0A0A] px-6 py-8 text-center group hover:bg-[#0F0F0F] transition-colors">
-              <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#A8FF3E] tracking-tight drop-shadow-[0_0_15px_rgba(168,255,62,0.25)]">
+            <div key={i} className="bg-[#0A0B0E]/80 backdrop-blur-md px-6 py-8 text-center group hover:bg-[#111218]/80 transition-colors">
+              <p className="text-4xl sm:text-5xl md:text-6xl font-bold text-white tracking-tightest">
                 <AnimatedCounter target={s.target} suffix={s.suffix} inView={isStatsInView} />
               </p>
-              <p className="mt-2 text-white text-xs sm:text-sm font-semibold">{s.label}</p>
-              <p className="mt-1 text-[#555555] text-[11px] sm:text-xs">{s.sub}</p>
+              <p className="mt-2 text-white text-xs sm:text-sm font-semibold tracking-tight">
+                {s.label}
+              </p>
+              <p className="mt-1 text-zinc-500 text-[11px] sm:text-xs font-light">
+                {s.sub}
+              </p>
             </div>
           ))}
         </motion.div>

@@ -1,42 +1,43 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { portfolioData } from '../data/portfolio';
-import { GraduationCap, BookOpen, Calendar, ArrowUpRight, Award } from 'lucide-react';
+import { AcademicCapIcon, CalendarIcon, BookOpenIcon } from '@heroicons/react/24/outline';
 
 const Education = () => {
   const { education } = portfolioData;
 
   return (
-    <section id="education" className="relative py-24 md:py-32 border-t border-white/[0.07]">
-      <div className="max-w-5xl mx-auto px-5 sm:px-8">
+    <section id="education" className="relative bg-transparent py-12 sm:py-20 md:py-28 hairline-t">
+      <div className="max-w-5xl mx-auto px-4 sm:px-8">
 
-        {/* Section Eyebrow Label */}
+        {/* Apple Eyebrow Pill */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="flex items-center gap-3 mb-4"
+          className="flex items-center gap-3 mb-3"
         >
-          <span className="section-label text-[#A8FF3E]">{education.label}</span>
+          <span className="apple-pill">
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+            {education.label}
+          </span>
         </motion.div>
 
-        {/* Section Heading with Signature Lime */}
+        {/* Section Heading */}
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-3xl sm:text-4xl md:text-[46px] font-bold text-white leading-tight tracking-tight mb-16"
+          className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-neutral-950 tracking-tight leading-tight mb-6 sm:mb-10"
         >
           Knowledge built through{' '}
-          <span className="text-[#A8FF3E]">commerce and finance.</span>
+          <span className="text-neutral-500 font-medium">commerce and finance.</span>
         </motion.h2>
 
-        {/* ========================================================
-            VERTICAL TIMELINE ARCHITECTURE
-           ======================================================== */}
-        <div className="relative pl-6 sm:pl-10 md:pl-12 border-l-2 border-white/[0.1] space-y-12 sm:space-y-16 ml-3 sm:ml-4">
+        {/* Apple Vertical Timeline */}
+        <div className="relative pl-5 sm:pl-10 md:pl-12 border-l-2 border-amber-300/60 space-y-6 sm:space-y-10 ml-2.5 sm:ml-4">
 
           {education.items.map((item, idx) => (
             <motion.div
@@ -47,80 +48,68 @@ const Education = () => {
               transition={{ duration: 0.6, delay: idx * 0.15 }}
               className="relative group"
             >
-              {/* Timeline Marker Node (Pulsing glowing dot aligned with the track) */}
-              <div className="absolute -left-[31px] sm:-left-[47px] md:-left-[55px] top-1 flex items-center justify-center">
-                <div className="w-5 h-5 rounded-full bg-[#0A0A0A] border-2 border-[#A8FF3E] flex items-center justify-center shadow-[0_0_15px_rgba(168,255,62,0.5)]">
-                  <div className="w-2 h-2 rounded-full bg-[#A8FF3E] animate-pulse" />
+              {/* Timeline Marker */}
+              <div className="absolute -left-[33px] sm:-left-[49px] md:-left-[57px] top-1.5 flex items-center justify-center">
+                <div className="w-5 h-5 rounded-full bg-white border-2 border-amber-500 flex items-center justify-center shadow-sm">
+                  <div className="w-1.5 h-1.5 rounded-full bg-amber-500" />
                 </div>
               </div>
 
-              {/* Timeline Card */}
-              <motion.div
-                whileHover={{ y: -4, borderColor: 'rgba(168,255,62,0.35)' }}
-                className="card p-6 sm:p-8 rounded-2xl relative overflow-hidden transition-all duration-300"
-                style={{ background: 'linear-gradient(160deg, #141414 0%, #0D0D0D 100%)' }}
-              >
-                {/* Top decorative hairline accent in lime */}
-                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#A8FF3E]/40 to-transparent group-hover:via-[#A8FF3E] transition-all duration-500" />
+              {/* Apple Glass Card */}
+              <div className="apple-card p-6 sm:p-8 rounded-3xl relative overflow-hidden">
 
-                {/* Top Row: Year Label & Status Pill */}
+                {/* Top Row: Year & Status Pill */}
                 <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
                   <div className="flex items-center gap-2">
-                    <Calendar className="w-4 h-4 text-[#A8FF3E]" />
-                    <span className="font-mono text-base sm:text-lg font-bold text-[#A8FF3E] tracking-wider">
+                    <CalendarIcon className="w-4 h-4 text-amber-600" />
+                    <span className="font-mono text-base sm:text-lg font-bold text-neutral-900 tracking-wider">
                       {item.duration}
                     </span>
                   </div>
 
-                  <span className="pill text-[10px] font-mono text-[#A8FF3E] bg-[#A8FF3E]/10 border border-[#A8FF3E]/30 px-3 py-1">
+                  <span className="px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-[10px] font-bold text-amber-800 uppercase tracking-wider">
                     {item.status}
                   </span>
                 </div>
 
                 {/* Degree Title & Institution */}
                 <div className="mb-4">
-                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight group-hover:text-[#A8FF3E] transition-colors mb-1.5">
+                  <h3 className="text-xl sm:text-2xl font-bold text-neutral-950 tracking-tight leading-snug mb-1">
                     {item.degree}
                   </h3>
-                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-[#A5ADB7]">
-                    <span className="font-medium text-white">{item.institution}</span>
-                    <span className="text-[#555555]">·</span>
-                    <span className="text-[#8A8A8A]">Specialization: <strong className="text-white font-normal">{item.specialization}</strong></span>
+                  <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-sm text-neutral-600">
+                    <span className="font-bold text-neutral-900">{item.institution}</span>
+                    <span className="text-neutral-400">·</span>
+                    <span>Specialization: <strong className="text-neutral-800 font-semibold">{item.specialization}</strong></span>
                   </div>
                 </div>
 
                 {/* Description Narrative */}
-                <p className="text-sm sm:text-[15px] text-[#8A8A8A] leading-relaxed mb-6 font-light">
+                <p className="text-sm sm:text-[15px] text-neutral-600 leading-relaxed mb-6 font-normal">
                   {item.description}
                 </p>
 
                 {/* Focus Areas Chips Strip */}
-                <div className="pt-5 border-t border-white/[0.07]">
+                <div className="pt-5 border-t border-neutral-200">
                   <div className="flex items-center gap-2 mb-3">
-                    <BookOpen className="w-3.5 h-3.5 text-[#A8FF3E]" />
-                    <span className="text-[11px] font-semibold text-[#8A8A8A] uppercase tracking-wider font-mono">
-                      Core Academic Subjects &amp; Focus
+                    <BookOpenIcon className="w-4 h-4 text-amber-600" />
+                    <span className="text-[11px] font-bold text-neutral-500 uppercase tracking-wider font-mono">
+                      Curriculum Focus &amp; Core Subjects
                     </span>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {item.focusAreas.map((area) => (
-                      <motion.span
+                      <span
                         key={area}
-                        whileHover={{
-                          scale: 1.04,
-                          backgroundColor: 'rgba(168,255,62,0.12)',
-                          color: '#A8FF3E',
-                          borderColor: 'rgba(168,255,62,0.3)',
-                        }}
-                        className="px-3 py-1 rounded-lg bg-white/[0.04] border border-white/[0.07] text-xs text-[#A5ADB7] transition-all cursor-default"
+                        className="px-3 py-1 rounded-full bg-neutral-100 border border-neutral-200 text-xs font-semibold text-neutral-800 hover:bg-neutral-200 transition-colors cursor-default"
                       >
                         {area}
-                      </motion.span>
+                      </span>
                     ))}
                   </div>
                 </div>
 
-              </motion.div>
+              </div>
             </motion.div>
           ))}
 

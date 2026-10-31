@@ -1,97 +1,92 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { portfolioData } from '../data/portfolio';
-import { Award, Calendar, CheckCircle2, ShieldCheck } from 'lucide-react';
+import { AcademicCapIcon, CalendarIcon, CheckCircleIcon, CheckBadgeIcon } from '@heroicons/react/24/outline';
 
 const Certifications = () => {
   const { certifications } = portfolioData;
 
   return (
-    <section id="certifications" className="relative bg-[#0A0A0A] py-24 md:py-32 border-t border-white/[0.07]">
-      <div className="max-w-6xl mx-auto px-5 sm:px-8">
+    <section id="certifications" className="relative bg-transparent py-12 sm:py-20 md:py-28 hairline-t">
+      <div className="max-w-6xl mx-auto px-4 sm:px-8">
 
-        <motion.p
+        {/* Section Label */}
+        <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="section-label mb-4"
+          className="flex items-center gap-3 mb-3"
         >
-          {certifications.label}
-        </motion.p>
+          <span className="apple-pill">
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+            {certifications.label}
+          </span>
+        </motion.div>
 
+        {/* Section Heading */}
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-3xl sm:text-4xl md:text-[48px] font-bold text-white leading-tight tracking-tight mb-16"
+          className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-neutral-950 tracking-tight leading-tight mb-6 sm:mb-10"
         >
-          {certifications.heading}
+          Verified technical{' '}
+          <span className="text-neutral-500 font-medium">credentials &amp; mastery.</span>
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           {certifications.items.map((cert, idx) => (
             <motion.div
-              key={idx}
+              key={cert.title}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.15 }}
-              whileHover={{
-                y: -6,
-                borderColor: 'rgba(168,255,62,0.35)',
-                boxShadow: '0 16px 40px -15px rgba(168,255,62,0.12)',
-              }}
-              className="card p-7 relative overflow-hidden transition-all duration-300 group flex flex-col justify-between"
+              className="apple-card p-5 sm:p-8 relative overflow-hidden flex flex-col justify-between"
             >
-              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#A8FF3E]/40 to-transparent group-hover:via-[#A8FF3E] transition-all duration-500" />
-
               <div>
-                <div className="flex items-start justify-between gap-4 mb-6">
-                  <motion.div
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    className="w-12 h-12 rounded-xl bg-[#A8FF3E]/10 border border-[#A8FF3E]/20 flex items-center justify-center transition-transform"
-                  >
-                    <Award className="w-5 h-5 text-[#A8FF3E]" />
-                  </motion.div>
-                  <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#141414] border border-white/[0.07]">
-                    <Calendar className="w-3 h-3 text-[#A8FF3E]" />
-                    <span className="text-[11px] font-mono text-[#8A8A8A]">{cert.date}</span>
+                <div className="flex items-start justify-between gap-4 mb-4 sm:mb-6">
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl premium-icon-box flex items-center justify-center text-white shadow-md shrink-0">
+                    <AcademicCapIcon className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-neutral-100 border border-neutral-200">
+                    <CalendarIcon className="w-3.5 h-3.5 text-amber-600" />
+                    <span className="text-xs font-mono font-bold text-neutral-800">{cert.date}</span>
                   </div>
                 </div>
 
                 <div className="mb-4">
-                  <span className="text-[10px] font-semibold text-[#A8FF3E] uppercase tracking-widest block mb-1.5 font-mono">
+                  <span className="text-[10px] font-bold text-amber-700 uppercase tracking-widest block mb-1.5 font-mono">
                     {cert.category}
                   </span>
-                  <h3 className="text-white font-bold text-xl leading-snug mb-1 group-hover:text-[#A8FF3E] transition-colors">
+                  <h3 className="text-neutral-950 font-bold text-xl sm:text-2xl tracking-tight leading-snug mb-1">
                     {cert.title}
                   </h3>
-                  <p className="text-[#8A8A8A] text-sm">{cert.provider}</p>
+                  <p className="text-neutral-600 text-sm font-normal">{cert.provider}</p>
                 </div>
 
-                <div className="mt-6 pt-5 border-t border-white/[0.07] space-y-2.5">
+                <div className="mt-6 pt-5 border-t border-neutral-200 space-y-2.5">
                   {cert.covered.map((item) => (
-                    <motion.div
+                    <div
                       key={item}
-                      whileHover={{ x: 3, color: '#FFFFFF' }}
-                      className="flex items-center gap-2.5 transition-colors cursor-default"
+                      className="flex items-center gap-3 p-1.5 rounded-lg hover:bg-neutral-50 transition-colors"
                     >
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#A8FF3E] shrink-0" />
-                      <span className="text-[#8A8A8A] text-xs hover:text-white transition-colors">
+                      <CheckCircleIcon className="w-4 h-4 text-amber-600 shrink-0" />
+                      <span className="text-neutral-800 text-xs font-semibold tracking-tight">
                         {item}
                       </span>
-                    </motion.div>
+                    </div>
                   ))}
                 </div>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-white/[0.07] flex items-center justify-between text-[11px] text-[#555555]">
-                <div className="flex items-center gap-2">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#A8FF3E]" />
-                  <span>Official Course Curriculum</span>
+              <div className="mt-8 pt-5 border-t border-neutral-200 flex items-center justify-between text-xs text-neutral-500">
+                <div className="flex items-center gap-2 font-medium">
+                  <CheckBadgeIcon className="w-4 h-4 text-amber-600" />
+                  <span>Official Verified Curriculum</span>
                 </div>
-                <span className="font-mono text-[10px] text-[#A8FF3E]">Verified</span>
+                <span className="font-mono text-[11px] text-amber-700 font-bold">Accredited</span>
               </div>
             </motion.div>
           ))}

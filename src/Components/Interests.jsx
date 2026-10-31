@@ -1,36 +1,45 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { portfolioData } from '../data/portfolio';
-import { TrendingUp, Search, Building2, Workflow, ArrowUpRight } from 'lucide-react';
+import { 
+  ArrowTrendingUpIcon, 
+  ChartBarIcon, 
+  BuildingOffice2Icon, 
+  CpuChipIcon 
+} from '@heroicons/react/24/outline';
 
-const interestIcons = [TrendingUp, Search, Building2, Workflow];
+const interestIcons = [ArrowTrendingUpIcon, ChartBarIcon, BuildingOffice2Icon, CpuChipIcon];
 
 const Interests = () => {
   const { interests } = portfolioData;
 
   return (
-    <section id="interests" className="relative bg-[#0F0F0F] py-24 md:py-32 border-t border-white/[0.07]">
+    <section id="interests" className="relative bg-transparent py-12 sm:py-20 md:py-28 hairline-t">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
 
         {/* Section Label */}
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="section-label mb-4"
+          className="flex items-center gap-3 mb-4"
         >
-          {interests.label}
-        </motion.p>
+          <span className="apple-pill">
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+            {interests.label}
+          </span>
+        </motion.div>
 
-        {/* Heading */}
+        {/* Section Heading */}
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-3xl sm:text-4xl md:text-[48px] font-bold text-white leading-tight tracking-tight mb-4"
+          className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-950 tracking-tight leading-tight mb-4"
         >
-          {interests.heading}
+          Curiosity that goes{' '}
+          <span className="text-neutral-500 font-medium">beyond accounting.</span>
         </motion.h2>
 
         <motion.p
@@ -38,15 +47,15 @@ const Interests = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-[#8A8A8A] text-base mb-16 max-w-2xl font-light"
+          className="text-neutral-600 text-sm sm:text-base mb-6 sm:mb-10 max-w-2xl font-normal leading-relaxed"
         >
           {interests.subheading}
         </motion.p>
 
-        {/* Asymmetric Bento Grid matching the Reference Design */}
+        {/* Asymmetric Bento Matrix */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
           {interests.items.map((item, idx) => {
-            const Icon = interestIcons[idx] || TrendingUp;
+            const Icon = interestIcons[idx] || ArrowTrendingUpIcon;
             const colSpan =
               idx === 0
                 ? 'md:col-span-7'
@@ -63,54 +72,34 @@ const Interests = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.12 }}
-                whileHover={{
-                  y: -6,
-                  borderColor: 'rgba(168,255,62,0.35)',
-                  boxShadow: '0 18px 45px -15px rgba(168,255,62,0.12)',
-                }}
-                className={`${colSpan} card p-7 flex flex-col justify-between gap-5 group relative overflow-hidden transition-all duration-300`}
+                className={`${colSpan} apple-card p-6 sm:p-8 flex flex-col justify-between gap-6 group`}
               >
-                {/* Hover Glow */}
-                <div
-                  className="absolute -bottom-16 -right-16 w-44 h-44 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                  style={{ background: 'radial-gradient(circle, rgba(168,255,62,0.12) 0%, transparent 70%)' }}
-                />
-
                 <div>
-                  <div className="flex items-start justify-between mb-4">
-                    <motion.div
-                      whileHover={{ scale: 1.1, rotate: 6 }}
-                      className="w-11 h-11 rounded-xl bg-[#A8FF3E]/10 border border-[#A8FF3E]/20 flex items-center justify-center group-hover:scale-105 transition-transform"
-                    >
-                      <Icon className="w-5 h-5 text-[#A8FF3E]" />
-                    </motion.div>
-                    <span className="text-[#3A3A3A] group-hover:text-[#A8FF3E] text-xs font-mono transition-colors">
+                  <div className="flex items-start justify-between mb-5">
+                    <div className="w-11 h-11 rounded-2xl premium-icon-box flex items-center justify-center text-white shrink-0">
+                      <Icon className="w-5 h-5 text-white" />
+                    </div>
+                    <span className="text-neutral-400 font-mono text-xs font-bold">
                       0{idx + 1}
                     </span>
                   </div>
 
-                  <h3 className="text-white font-bold text-lg sm:text-xl leading-snug mb-2 group-hover:text-[#A8FF3E] transition-colors">
+                  <h3 className="text-neutral-950 font-bold text-lg sm:text-xl tracking-tight leading-snug mb-2">
                     {item.title}
                   </h3>
-                  <p className="text-[#8A8A8A] text-sm leading-relaxed font-light">
+                  <p className="text-neutral-600 text-sm leading-relaxed font-normal">
                     {item.description}
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-white/[0.07] flex flex-wrap gap-2">
+                <div className="pt-5 border-t border-neutral-200 flex flex-wrap gap-2">
                   {item.metrics.map((m) => (
-                    <motion.span
+                    <span
                       key={m}
-                      whileHover={{
-                        scale: 1.05,
-                        backgroundColor: 'rgba(168,255,62,0.12)',
-                        color: '#FFFFFF',
-                        borderColor: 'rgba(168,255,62,0.3)',
-                      }}
-                      className="px-2.5 py-1 rounded-lg bg-white/[0.04] border border-white/[0.07] text-[11px] text-[#8A8A8A] transition-colors cursor-default"
+                      className="px-3 py-1 rounded-full bg-neutral-100 border border-neutral-200 text-[11px] font-semibold text-neutral-700 hover:bg-neutral-200 transition-colors cursor-default"
                     >
                       {m}
-                    </motion.span>
+                    </span>
                   ))}
                 </div>
               </motion.div>

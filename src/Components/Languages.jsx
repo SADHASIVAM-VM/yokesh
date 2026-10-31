@@ -1,37 +1,40 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { portfolioData } from '../data/portfolio';
-import { Globe2 } from 'lucide-react';
+import { GlobeAltIcon } from '@heroicons/react/24/outline';
 
 const Languages = () => {
   const { languages } = portfolioData;
 
   return (
-    <section id="languages" className="relative  py-20 border-t border-white/[0.07]">
+    <section id="languages" className="relative bg-transparent py-10 sm:py-16 md:py-24 hairline-t">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
 
         {/* Section Label */}
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="section-label mb-4"
+          className="flex items-center gap-3 mb-4"
         >
-          {languages.label}
-        </motion.p>
+          <span className="apple-pill">
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+            {languages.label}
+          </span>
+        </motion.div>
 
-        {/* Heading */}
+        {/* Section Heading */}
         <motion.h2
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-2xl sm:text-3xl font-bold text-white mb-10"
+          className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-neutral-950 tracking-tight mb-6 sm:mb-8"
         >
           Articulate communication across teams.
         </motion.h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 max-w-2xl">
           {languages.items.map((lang, idx) => (
             <motion.div
               key={lang.name}
@@ -39,26 +42,18 @@ const Languages = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.12 }}
-              whileHover={{
-                y: -5,
-                borderColor: 'rgba(168,255,62,0.35)',
-                boxShadow: '0 12px 30px -10px rgba(168,255,62,0.12)',
-              }}
-              className="card p-6 flex items-center gap-4 transition-all duration-300 group"
+              className="apple-card p-5 sm:p-6 flex items-center gap-4 sm:gap-5"
             >
-              <motion.div
-                whileHover={{ scale: 1.1, rotate: 10 }}
-                className="w-12 h-12 rounded-xl bg-[#A8FF3E]/10 border border-[#A8FF3E]/20 flex items-center justify-center transition-transform"
-              >
-                <Globe2 className="w-5 h-5 text-[#A8FF3E]" />
-              </motion.div>
+              <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl premium-icon-box flex items-center justify-center text-white shrink-0">
+                <GlobeAltIcon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+              </div>
               <div className="flex-1">
-                <h3 className="text-white font-bold text-lg group-hover:text-[#A8FF3E] transition-colors">
+                <h3 className="text-neutral-950 font-bold text-lg tracking-tight">
                   {lang.name}
                 </h3>
-                <p className="text-[#8A8A8A] text-xs mt-0.5">{lang.context}</p>
+                <p className="text-neutral-500 text-xs mt-0.5 font-normal">{lang.context}</p>
               </div>
-              <span className="px-2.5 py-1 rounded-lg bg-white/[0.04] border border-white/[0.07] text-[11px] font-mono text-[#A8FF3E]">
+              <span className="px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-xs font-mono font-bold text-amber-800">
                 {lang.code}
               </span>
             </motion.div>

@@ -51,7 +51,7 @@ const Contact = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-950 tracking-tight leading-tight mb-4"
+          className="text-xl sm:text-2xl xl:text-4xl font-extrabold text-neutral-950 tracking-tight leading-tight mb-4"
         >
           Let's connect and{' '}
           <span className="text-neutral-500 font-medium">build meaningful value.</span>
@@ -165,7 +165,7 @@ const Contact = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 href={`mailto:${contact.email}?subject=${encodeURIComponent(contact.directInquirySubject)}`}
-                className="flex-1 flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-neutral-950 text-white font-bold text-sm hover:bg-neutral-850 transition-all cursor-pointer shadow-md"
+                className="flex-1 flex items-center justify-center gap-2 px-5 py-3 sm:px-6 sm:py-3.5 rounded-full bg-neutral-950 text-white font-bold text-xs sm:text-sm hover:bg-neutral-850 transition-all cursor-pointer shadow-md"
               >
                 <EnvelopeIcon className="w-4 h-4 text-white" />
                 <span>Send Direct Email</span>
@@ -176,7 +176,7 @@ const Contact = () => {
                 whileTap={{ scale: 0.98 }}
                 href={personal.resumePath}
                 download="Yokesh_D_Resume.pdf"
-                className="flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white border border-neutral-300 text-neutral-900 text-sm font-bold hover:bg-neutral-50 transition-all cursor-pointer shadow-sm"
+                className="flex items-center justify-center gap-2 px-5 py-3 sm:px-6 sm:py-3.5 rounded-full bg-white border border-neutral-300 text-neutral-900 text-xs sm:text-sm font-bold hover:bg-neutral-50 transition-all cursor-pointer shadow-sm"
               >
                 <DocumentArrowDownIcon className="w-4 h-4 text-amber-600" />
                 <span>Download CV</span>

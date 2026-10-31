@@ -52,7 +52,7 @@ const SectionHeading = ({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.1 }}
-        className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-display font-medium text-ivory tracking-tight leading-tight max-w-3xl"
+        className="text-xl sm:text-2xl xl:text-4xl font-display font-medium text-ivory tracking-tight leading-tight max-w-3xl"
       >
         {renderHeading()}
       </motion.h2>

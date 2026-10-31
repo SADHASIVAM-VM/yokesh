@@ -36,7 +36,7 @@ const Interests = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-950 tracking-tight leading-tight mb-4"
+          className="text-xl sm:text-2xl xl:text-4xl font-extrabold text-neutral-950 tracking-tight leading-tight mb-4"
         >
           Curiosity that goes{' '}
           <span className="text-neutral-500 font-medium">beyond accounting.</span>

@@ -64,7 +64,7 @@ const Skills = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-neutral-950 tracking-tight leading-tight mb-2 sm:mb-4"
+          className="text-xl sm:text-2xl xl:text-4xl font-extrabold text-neutral-950 tracking-tight leading-tight mb-2 sm:mb-4"
         >
           Tools &amp; capabilities that drive{' '}
           <span className="text-neutral-500 font-medium">my work.</span>
@@ -86,10 +86,7 @@ const Skills = () => {
           INFINITE HORIZONTAL SCROLLING SKILLS TICKER (Full-Width)
          ======================================================== */}
       <div className="relative w-full mb-8 sm:mb-12 overflow-hidden py-2 space-y-3">
-        {/* Soft Left & Right Fade Masks */}
-        <div className="absolute left-0 inset-y-0 w-12 sm:w-28 bg-gradient-to-r from-[#FFFFFF] via-[#FFFFFF]/80 to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 inset-y-0 w-12 sm:w-28 bg-gradient-to-l from-[#FFFFFF] via-[#FFFFFF]/80 to-transparent z-10 pointer-events-none" />
-
+     
         {/* Row 1: Scrolling Left */}
         <div className="flex w-fit overflow-hidden">
           <motion.div

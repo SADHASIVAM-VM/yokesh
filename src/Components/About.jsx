@@ -90,7 +90,7 @@ const About = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-neutral-950 tracking-tight leading-tight max-w-3xl mb-6 sm:mb-10"
+          className="text-xl sm:text-2xl xl:text-4xl font-extrabold text-neutral-950 tracking-tight leading-tight max-w-3xl mb-6 sm:mb-10"
         >
           Beyond numbers.<br />
           <span className="text-neutral-500 font-medium">Understanding how businesses create sustainable value.</span>
@@ -189,12 +189,12 @@ const About = () => {
               </div>
 
               {/* Apple Pull Quote */}
-              <blockquote className="text-xl sm:text-2xl lg:text-[25px] text-neutral-950 font-semibold leading-snug tracking-tight mb-6">
+              <blockquote className="text-[13px] sm:text-xl xl:text-2xl text-neutral-950 font-semibold leading-relaxed mb-6">
                 "I'm Yokesh D, an MBA candidate specializing in Finance and Operations, with a background in Commerce and practical exposure to financial transactions, accounting systems, business operations and financial research."
               </blockquote>
 
               {/* Narrative Statements */}
-              <div className="space-y-4 text-sm sm:text-base text-neutral-600 leading-relaxed font-normal mb-8">
+              <div className="space-y-4 text-sm sm:text-base text-neutral-600 leading-relaxed  mb-8">
                 <p>
                   With foundational knowledge of accounting, financial reporting and business operations, I have developed practical exposure through internships and corporate projects.
                 </p>

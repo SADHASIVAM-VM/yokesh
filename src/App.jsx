@@ -18,7 +18,7 @@ export const App = () => {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#0A0A0A] text-white selection:bg-[#A8FF3E]/30 selection:text-[#A8FF3E] relative overflow-x-hidden font-sans">
+    <div className="min-h-screen bg-[#FFFFFF] text-[#111827] selection:bg-amber-500/20 selection:text-amber-900 relative overflow-x-hidden font-sans">
       {/* Global Interactive Background: Mouse Spotlight + Particle Network */}
       <InteractiveBackground />
 

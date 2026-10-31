@@ -8,25 +8,32 @@ export default {
     extend: {
       colors: {
         base: {
-          DEFAULT: '#000000',
-          50:  '#050507',
-          100: '#0A0B0E',
-          200: '#111218',
-          300: '#181A22',
-          400: '#232530',
+          DEFAULT: '#FAFAFC',
+          50:  '#FFFFFF',
+          100: '#F4F5F7',
+          200: '#E5E7EB',
+          300: '#D1D5DB',
+          400: '#9CA3AF',
         },
         lime: {
-          DEFAULT: '#A8FF3E',
-          dim:    'rgba(168,255,62,0.12)',
-          glow:   'rgba(168,255,62,0.25)',
-          border: 'rgba(168,255,62,0.30)',
-          dark:   '#7ACC2A',
-          muted:  '#6AAD22',
+          DEFAULT: '#059669',
+          dim:    'rgba(5, 150, 105, 0.08)',
+          glow:   'rgba(5, 150, 105, 0.20)',
+          border: 'rgba(5, 150, 105, 0.25)',
+          dark:   '#047857',
+          muted:  '#10B981',
         },
+        emerald: {
+          DEFAULT: '#059669',
+          light: '#10B981',
+          dark: '#047857',
+          dim: 'rgba(5, 150, 105, 0.08)',
+        }
       },
       fontFamily: {
-        sans: ['"Onest"', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif'],
-        display: ['"Onest"', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif'],
+        sans: ['"Montserrat"', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif'],
+        display: ['"Montserrat"', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif'],
+        serif: ['"Instrument Serif"', 'Georgia', 'serif'],
       },
       borderRadius: {
         '2xl': '18px',
@@ -34,14 +41,14 @@ export default {
         '4xl': '34px',
       },
       boxShadow: {
-        'apple-glass': '0 20px 50px -15px rgba(0,0,0,0.8), inset 0 1px 1px 0 rgba(255,255,255,0.08)',
-        'apple-hover': '0 30px 60px -15px rgba(0,0,0,0.9), inset 0 1px 1px 0 rgba(255,255,255,0.16)',
-        'lime-glow':   '0 0 40px -10px rgba(168,255,62,0.35)',
+        'apple-glass': '0 10px 30px -5px rgba(0,0,0,0.06), 0 1px 3px 0 rgba(0,0,0,0.04)',
+        'apple-hover': '0 20px 40px -10px rgba(0,0,0,0.09), 0 2px 6px 0 rgba(0,0,0,0.04)',
+        'lime-glow':   '0 0 40px -10px rgba(5,150,105,0.25)',
       },
       letterSpacing: {
-        tightest: '-0.035em',
-        tighter:  '-0.025em',
-        tight:    '-0.015em',
+        tightest: '-0.03em',
+        tighter:  '-0.02em',
+        tight:    '-0.01em',
       },
       animation: {
         'pulse-subtle': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',

@@ -5,11 +5,11 @@ export const portfolioData = {
     eyebrow: "FINANCE · RESEARCH · OPERATIONS",
     status: "OPEN TO OPPORTUNITIES",
     heroHeadline: {
-      line1: "Understanding numbers.",
-      line2: "Discovering value.",
+      line1: "Hey there, I'm Yokesh.",
+      line2: "Bridging Finance & Operations.",
     },
     intro:
-      "I'm Yokesh D, an MBA candidate specializing in Finance and Operations, with a background in Commerce and practical exposure to financial transactions, accounting systems, business operations and financial research.",
+      "Commerce graduate and MBA candidate with hands-on exposure in SAP FICO, Tally Prime, and financial reporting. Dedicated to translating complex numbers into operational efficiency and long-term business value.",
     supporting:
       "Interested in financial statement analysis, company research, investment fundamentals and understanding how businesses create sustainable financial performance.",
     location: "Chennai, India",

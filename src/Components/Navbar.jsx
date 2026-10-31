@@ -9,7 +9,7 @@ import {
   ArrowTopRightOnSquareIcon 
 } from '@heroicons/react/24/outline';
 import { portfolioData } from '../data/portfolio';
-import profileImg from '../assets/images/profile.jpeg';
+import profileImg from '../assets/images/profile.png';
 
 const navItems = [
   { label: 'About', href: '#about' },
@@ -53,7 +53,7 @@ const Navbar = ({ onOpenResume }) => {
   return (
     <>
       {/* ========================================================
-          1. DESKTOP FLOATING GLASS MENU (macOS / visionOS aesthetic)
+          1. DESKTOP FLOATING GLASS MENU (Apple Light Mode)
          ======================================================== */}
       <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-4 sm:px-8 pointer-events-none">
         <div className="max-w-6xl mx-auto flex items-center justify-between pointer-events-auto">
@@ -62,21 +62,21 @@ const Navbar = ({ onOpenResume }) => {
           <a
             href="#hero"
             onClick={(e) => go(e, '#hero')}
-            className="flex items-center gap-3 px-3 py-1.5 rounded-full apple-glass group hover:border-white/20 transition-all duration-300"
+            className="flex items-center gap-3 px-3 py-1.5 rounded-full apple-glass group hover:border-black/20 transition-all duration-300"
           >
             <div className="relative">
               <img
                 src={profileImg}
                 alt="Yokesh D"
-                className="w-8 h-8 rounded-full object-cover border border-white/20 group-hover:border-[#A8FF3E]/70 transition-colors shadow-sm"
+                className="w-8 h-8 rounded-full object-cover border border-neutral-200 group-hover:border-amber-500 transition-colors shadow-sm"
               />
-              <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-[#A8FF3E] border-2 border-black" />
+              <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-amber-500 border-2 border-white" />
             </div>
             <div className="flex flex-col pr-2">
-              <span className="font-semibold text-xs tracking-tight text-white group-hover:text-[#A8FF3E] transition-colors leading-tight">
+              <span className="font-semibold text-xs tracking-tight text-neutral-900 group-hover:text-amber-700 transition-colors leading-tight">
                 {portfolioData.personal.name}
               </span>
-              <span className="text-[10px] text-zinc-400 font-medium tracking-wide leading-tight">
+              <span className="text-[10px] text-neutral-500 font-medium tracking-wide leading-tight">
                 Finance &amp; Ops
               </span>
             </div>
@@ -91,10 +91,10 @@ const Navbar = ({ onOpenResume }) => {
                   key={item.label}
                   href={item.href}
                   onClick={(e) => go(e, item.href)}
-                  className={`px-4 py-1.5 rounded-full text-xs font-medium tracking-tight transition-all duration-200 ${
+                  className={`px-4 py-1.5 rounded-full text-xs font-semibold tracking-tight transition-all duration-200 ${
                     isActive
-                      ? 'bg-white text-black font-semibold shadow-sm'
-                      : 'text-zinc-400 hover:text-white hover:bg-white/[0.05]'
+                      ? 'bg-neutral-900 text-white shadow-sm'
+                      : 'text-neutral-600 hover:text-neutral-950 hover:bg-neutral-100'
                   }`}
                 >
                   {item.label}
@@ -105,14 +105,14 @@ const Navbar = ({ onOpenResume }) => {
 
           {/* Right Action: Status Pill & Resume Button */}
           <div className="flex items-center gap-2.5">
-            <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full apple-glass text-[11px] font-medium text-[#A8FF3E]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#A8FF3E] animate-pulse" />
+            <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-50 border border-amber-200/80 text-[11px] font-semibold text-amber-800 shadow-sm">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
               <span className="tracking-wide">Open to Opportunities</span>
             </div>
 
             <button
               onClick={onOpenResume}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-black text-xs font-semibold hover:bg-zinc-200 transition-all shadow-md active:scale-95 cursor-pointer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-900 text-white text-xs font-semibold hover:bg-neutral-800 transition-all shadow-sm active:scale-95 cursor-pointer"
             >
               <DocumentTextIcon className="w-3.5 h-3.5" />
               <span>Resume</span>
@@ -123,32 +123,32 @@ const Navbar = ({ onOpenResume }) => {
       </header>
 
       {/* ========================================================
-          2. MOBILE FLOATING DOCK (Apple iOS / visionOS Glass Dock)
+          2. MOBILE FLOATING DOCK (Apple iOS / visionOS Light Glass Dock)
          ======================================================== */}
       <nav
         aria-label="Mobile Navigation Dock"
-        className="md:hidden fixed bottom-5 inset-x-4 max-w-sm mx-auto z-50 apple-glass rounded-full px-3 py-2 shadow-[0_16px_45px_rgba(0,0,0,0.8)] border border-white/15 flex items-center justify-between"
+        className="md:hidden fixed bottom-5 inset-x-4 max-w-sm mx-auto z-50 bg-white/90 backdrop-blur-2xl rounded-full px-3 py-2 shadow-[0_12px_40px_rgba(0,0,0,0.12)] border border-neutral-200 flex items-center justify-between"
       >
         {/* Tab 1: Home */}
         <button
           onClick={(e) => go(e, '#hero')}
           className={`flex-1 flex flex-col items-center justify-center py-1 transition-all ${
-            activeSection === 'hero' ? 'text-[#A8FF3E] font-semibold scale-105' : 'text-zinc-400 hover:text-white'
+            activeSection === 'hero' ? 'text-amber-700 font-bold scale-105' : 'text-neutral-500 hover:text-neutral-900'
           }`}
         >
           <HomeIcon className="w-5 h-5" />
-          <span className="text-[10px] mt-0.5 tracking-tight">Home</span>
+          <span className="text-[10px] mt-0.5 tracking-tight font-medium">Home</span>
         </button>
 
         {/* Tab 2: About */}
         <button
           onClick={(e) => go(e, '#about')}
           className={`flex-1 flex flex-col items-center justify-center py-1 transition-all ${
-            activeSection === 'about' ? 'text-[#A8FF3E] font-semibold scale-105' : 'text-zinc-400 hover:text-white'
+            activeSection === 'about' ? 'text-amber-700 font-bold scale-105' : 'text-neutral-500 hover:text-neutral-900'
           }`}
         >
           <UserIcon className="w-5 h-5" />
-          <span className="text-[10px] mt-0.5 tracking-tight">About</span>
+          <span className="text-[10px] mt-0.5 tracking-tight font-medium">About</span>
         </button>
 
         {/* Center Prominent Action Button: Resume */}
@@ -156,12 +156,12 @@ const Navbar = ({ onOpenResume }) => {
           <motion.button
             whileTap={{ scale: 0.9 }}
             onClick={onOpenResume}
-            className="w-12 h-12 -mt-7 rounded-full bg-[#A8FF3E] text-black flex items-center justify-center shadow-lg shadow-[#A8FF3E]/35 border-2 border-black cursor-pointer"
+            className="w-12 h-12 -mt-7 rounded-full bg-neutral-900 text-white flex items-center justify-center shadow-lg border-2 border-white cursor-pointer hover:bg-neutral-850"
             title="View & Download Resume"
           >
             <DocumentTextIcon className="w-5 h-5" />
           </motion.button>
-          <span className="text-[10px] font-semibold text-[#A8FF3E] mt-1 tracking-tight">Resume</span>
+          <span className="text-[10px] font-bold text-neutral-900 mt-1 tracking-tight">Resume</span>
         </div>
 
         {/* Tab 4: Work */}
@@ -169,23 +169,23 @@ const Navbar = ({ onOpenResume }) => {
           onClick={(e) => go(e, '#experience')}
           className={`flex-1 flex flex-col items-center justify-center py-1 transition-all ${
             activeSection === 'experience' || activeSection === 'skills'
-              ? 'text-[#A8FF3E] font-semibold scale-105'
-              : 'text-zinc-400 hover:text-white'
+              ? 'text-amber-700 font-bold scale-105'
+              : 'text-neutral-500 hover:text-neutral-900'
           }`}
         >
           <BriefcaseIcon className="w-5 h-5" />
-          <span className="text-[10px] mt-0.5 tracking-tight">Work</span>
+          <span className="text-[10px] mt-0.5 tracking-tight font-medium">Work</span>
         </button>
 
         {/* Tab 5: Contact */}
         <button
           onClick={(e) => go(e, '#contact')}
           className={`flex-1 flex flex-col items-center justify-center py-1 transition-all ${
-            activeSection === 'contact' ? 'text-[#A8FF3E] font-semibold scale-105' : 'text-zinc-400 hover:text-white'
+            activeSection === 'contact' ? 'text-amber-700 font-bold scale-105' : 'text-neutral-500 hover:text-neutral-900'
           }`}
         >
           <EnvelopeIcon className="w-5 h-5" />
-          <span className="text-[10px] mt-0.5 tracking-tight">Contact</span>
+          <span className="text-[10px] mt-0.5 tracking-tight font-medium">Contact</span>
         </button>
       </nav>
     </>

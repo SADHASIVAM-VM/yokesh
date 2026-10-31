@@ -29,7 +29,7 @@ const Languages = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-neutral-950 tracking-tight mb-6 sm:mb-8"
+          className="text-xl sm:text-2xl xl:text-4xl font-extrabold text-neutral-950 tracking-tight mb-6 sm:mb-8"
         >
           Articulate communication across teams.
         </motion.h2>

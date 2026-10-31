@@ -175,11 +175,11 @@ const Hero = () => {
           initial={{ opacity: 0, y: 22 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-4xl sm:text-6xl md:text-[68px] lg:text-[76px]  text-neutral-950 tracking-tight leading-[1.08]"
+          className="text-2xl sm:text-4xl  xl:text-[68px]  text-neutral-950 tracking-tight leading-[1.08]"
         >
           <span className="font-serif italic font-normal text-neutral-800 ">Hey there,</span> <span className='font-bold text-neutral-900'>I'm Yokesh.</span> 
           <br />
-          <span className="text-neutral-900 text-2xl sm:text-4xl md:text-[62px] lg:text-[68px] ">Bridging Finance &amp; Operations.</span>
+          <span className="text-neutral-900 text-xl md:text-2xl xl:text-3xl ">Bridging Finance &amp; Operations.</span>
         </motion.h1>
 
         {/* Narrative Subtitle */}
@@ -187,7 +187,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-6 text-neutral-600 text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl mx-auto font-normal"
+          className="mt-6 text-neutral-600 text-[13px] md:text-lg  leading-relaxed max-w-2xl mx-auto font-normal"
         >
           {personal.intro}
         </motion.p>

@@ -29,7 +29,7 @@ const Certifications = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-neutral-950 tracking-tight leading-tight mb-6 sm:mb-10"
+          className="text-xl sm:text-2xl xl:text-4xl font-extrabold text-neutral-950 tracking-tight leading-tight mb-6 sm:mb-10"
         >
           Verified technical{' '}
           <span className="text-neutral-500 font-medium">credentials &amp; mastery.</span>
@@ -57,13 +57,13 @@ const Certifications = () => {
                 </div>
 
                 <div className="mb-4">
-                  <span className="text-[10px] font-bold text-amber-700 uppercase tracking-widest block mb-1.5 font-mono">
+                  <span className="text-[10px] font-bold text-amber-700 uppercase tracking-widest block mb-1.5 ">
                     {cert.category}
                   </span>
-                  <h3 className="text-neutral-950 font-bold text-xl sm:text-2xl tracking-tight leading-snug mb-1">
+                  <h3 className="text-neutral-950 font-bold text-[14px] sm:text-[16px] tracking-tight leading-snug mb-1">
                     {cert.title}
                   </h3>
-                  <p className="text-neutral-600 text-sm font-normal">{cert.provider}</p>
+                  <p className="text-neutral-600 text-[12px]">{cert.provider}</p>
                 </div>
 
                 <div className="mt-6 pt-5 border-t border-neutral-200 space-y-2.5">

@@ -53,37 +53,37 @@ const Navbar = ({ onOpenResume }) => {
   return (
     <>
       {/* ========================================================
-          1. DESKTOP FLOATING GLASS MENU (Apple Light Mode)
+          1. DESKTOP & TABLET FLOATING GLASS MENU (Apple Light Mode)
          ======================================================== */}
-      <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-4 sm:px-8 pointer-events-none">
-        <div className="max-w-6xl mx-auto flex items-center justify-between pointer-events-auto">
+      <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3 sm:py-4 px-3 sm:px-6 md:px-8 pointer-events-none">
+        <div className="max-w-6xl mx-auto flex items-center justify-between gap-3 pointer-events-auto">
 
           {/* Left Brand Mark */}
           <a
             href="#hero"
             onClick={(e) => go(e, '#hero')}
-            className="flex items-center gap-3 px-3 py-1.5 rounded-full apple-glass group hover:border-black/20 transition-all duration-300"
+            className="flex items-center gap-2.5 sm:gap-3 px-2.5 sm:px-3 py-1.5 rounded-full apple-glass group hover:border-black/20 transition-all duration-300 shrink-0"
           >
-            <div className="relative">
+            <div className="relative shrink-0">
               <img
                 src={profileImg}
                 alt="Yokesh D"
-                className="w-8 h-8 rounded-full object-cover border border-neutral-200 group-hover:border-amber-500 transition-colors shadow-sm"
+                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full object-cover border border-neutral-200 group-hover:border-amber-500 transition-colors shadow-sm"
               />
               <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-amber-500 border-2 border-white" />
             </div>
-            <div className="flex flex-col pr-2">
-              <span className="font-semibold text-xs tracking-tight text-neutral-900 group-hover:text-amber-700 transition-colors leading-tight">
+            <div className="flex flex-col pr-1 sm:pr-2">
+              <span className="font-semibold text-xs tracking-tight text-neutral-900 group-hover:text-amber-700 transition-colors leading-tight whitespace-nowrap">
                 {portfolioData.personal.name}
               </span>
-              <span className="text-[10px] text-neutral-500 font-medium tracking-wide leading-tight">
+              <span className="text-[10px] text-neutral-500 font-medium tracking-wide leading-tight whitespace-nowrap">
                 Finance &amp; Ops
               </span>
             </div>
           </a>
 
-          {/* Center Navigation Links (Apple Glass Pill) */}
-          <nav className="hidden md:flex items-center gap-1 px-3 py-1.5 rounded-full apple-glass">
+          {/* Center Navigation Links (Apple Glass Pill) - Responsive for Tablet & Desktop */}
+          <nav className="hidden md:flex items-center gap-0.5 lg:gap-1 px-2.5 lg:px-3.5 py-1.5 rounded-full apple-glass shrink-0">
             {navItems.map((item) => {
               const isActive = activeSection === item.href.replace('#', '');
               return (
@@ -91,7 +91,7 @@ const Navbar = ({ onOpenResume }) => {
                   key={item.label}
                   href={item.href}
                   onClick={(e) => go(e, item.href)}
-                  className={`px-4 py-1.5 rounded-full text-xs font-semibold tracking-tight transition-all duration-200 ${
+                  className={`px-3 lg:px-4 py-1.5 rounded-full text-xs font-semibold tracking-tight transition-all duration-200 whitespace-nowrap ${
                     isActive
                       ? 'bg-neutral-900 text-white shadow-sm'
                       : 'text-neutral-600 hover:text-neutral-950 hover:bg-neutral-100'
@@ -104,17 +104,18 @@ const Navbar = ({ onOpenResume }) => {
           </nav>
 
           {/* Right Action: Status Pill & Resume Button */}
-          <div className="flex items-center gap-2.5">
-            <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-50 border border-amber-200/80 text-[11px] font-semibold text-amber-800 shadow-sm">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+          <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+            {/* Show 'Open to Opportunities' only on desktop (lg+) to avoid crowding tablet */}
+            <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-50 border border-amber-200/80 text-[11px] font-semibold text-amber-800 shadow-sm whitespace-nowrap">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse shrink-0" />
               <span className="tracking-wide">Open to Opportunities</span>
             </div>
 
             <button
               onClick={onOpenResume}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-900 text-white text-xs font-semibold hover:bg-neutral-800 transition-all shadow-sm active:scale-95 cursor-pointer"
+              className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-neutral-900 text-white text-xs font-semibold hover:bg-neutral-800 transition-all shadow-sm active:scale-95 cursor-pointer whitespace-nowrap shrink-0"
             >
-              <DocumentTextIcon className="w-3.5 h-3.5" />
+              <DocumentTextIcon className="w-3.5 h-3.5 shrink-0" />
               <span>Resume</span>
             </button>
           </div>
